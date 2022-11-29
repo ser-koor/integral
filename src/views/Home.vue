@@ -1,13 +1,19 @@
 <template>
   <div class="home">
-    <header>首123页</header>
+    <header>首{{this.$store.state.message}}页</header>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
   name: 'Home',
+  created() {
+    axios.get('http://kumanxuan1.f3322.net:8881/cms/products/recommend').then(res => {
+      console.log(res.data);
+    })
+  }
 
 }
 </script>
