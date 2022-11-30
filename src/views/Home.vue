@@ -10,9 +10,9 @@ import axios from 'axios'
 export default {
   name: 'Home',
   created() {
-    axios.get('http://kumanxuan1.f3322.net:8881/cms/products/recommend').then(res => {
-      console.log(res.data);
-    })
+    // axios.get('http://kumanxuan1.f3322.net:8881/cms/products/recommend').then(res => {
+    //   console.log(res.data);
+    // })
   }
 
 }

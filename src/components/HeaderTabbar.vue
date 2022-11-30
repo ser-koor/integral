@@ -5,11 +5,11 @@
     </h1>
     <div class="nav">
       <ul>
-        <li class="check">首页</li>
-        <li>全部商品</li>
-        <li>个人中心</li>
-        <li>我的订单</li>
-        <li>专属福利</li>
+        <li @click="toPath('home')" :class="$route.path === '/home' ? 'active' : ''">首页</li>
+        <li @click="toPath('goods')" :class="$route.path === '/goods' ? 'active' : ''">全部商品</li>
+        <li @click="toPath('user')" :class="$route.path === '/user' ? 'active' : ''">个人中心</li>
+        <li @click="toPath('order')" :class="$route.path === '/order' ? 'active' : ''">我的订单</li>
+        <li @click="toPath('free')" :class="$route.path === '/free' ? 'active' : ''">专属福利</li>
       </ul>
     </div>
     <div class="search">
@@ -21,7 +21,18 @@
 
 <script>
 export default {
-  name: 'HeaderTabbar'
+  name: 'HeaderTabbar',
+  methods: {
+    toPath(path) {
+      console.log(this.$route.path, '555');
+      if (this.$router.path === '/'+path) {
+        return
+      } else {
+        console.log(123);
+        this.$router.push(path).catch(err => err)
+      }
+    }
+  }
 }
 </script>
 
@@ -35,7 +46,8 @@ export default {
     display: flex;
     width: 500px;
     justify-content: space-between;
-    .check {
+    cursor: default;
+    .active {
       color: #0a328e;
       font-weight: 700;
     }
